@@ -253,8 +253,8 @@ def _read_gcs_file_contents(filepath: str) -> str:
 def upload_evaluation_results(
     dataset: "pd.DataFrame", destination_uri_prefix: str, file_name: str
 ):
-    """Uploads eval results to GCS CSV destination."""
-    supported_file_types = ["csv"]
+    """Uploads eval results to GCS CSV or JSONL destination."""
+    supported_file_types = ["csv", "jsonl"]
     if not destination_uri_prefix:
         return
     if destination_uri_prefix.startswith(_GCS_PREFIX):
